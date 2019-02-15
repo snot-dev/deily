@@ -50,32 +50,6 @@
 			2,
 			{ "allowSamePrecedence": true }
 		],
-		"valid-jsdoc": [
-			2, {
-				"prefer": {
-					"return": "returns"
-				},
-				"preferType": {
-					"object": "Object",
-					"array": "Array",
-					"Number": "number",
-					"Boolean": "boolean",
-					"String": "string",
-					"function": "Function"
-				},
-				"requireReturn": false,
-				"requireReturnDescription": false
-			}
-		],
-		"require-jsdoc": [
-			2, {
-				"require": {
-					"FunctionDeclaration": true,
-					"MethodDefinition": true,
-					"ClassDeclaration": true
-				}
-			}
-		],
 		"no-unused-expressions": [2, { "allowTernary": true }],
 		"no-underscore-dangle": [2, { "allowAfterThis": true }],
 		"no-empty-function": 2,
