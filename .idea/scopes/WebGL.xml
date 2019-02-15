@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="WebGL" pattern="(file[project]:src/*||file[project]:src//*)&amp;&amp;!file[project]:src/bower_components/*/node_modules//*&amp;&amp;!file[project]:src/bower_components/*/jsthirdparty//*&amp;&amp;!file[project]:src/bower_components/*/mocha_base//*" />
+</component>
