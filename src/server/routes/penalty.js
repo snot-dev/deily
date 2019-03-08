@@ -1,6 +1,4 @@
-const mongoose = require( 'mongoose' );
 const crud = require( '../shared/crud' );
+const Penalty = require( '../models/penalty' );
 
-const Penalty = mongoose.model( 'Penalty' );
-
-module.exports = crud.defineRoutes( Penalty );
+module.exports = crud.createRoutes( Penalty );

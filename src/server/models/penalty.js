@@ -7,4 +7,4 @@ const PenaltySchema = new mongoose.Schema( {
 	date: { type: Date, default: Date.now(), required: true }
 } );
 
-mongoose.model( 'Penalty', PenaltySchema );
+module.exports = mongoose.model( 'Penalty', PenaltySchema );

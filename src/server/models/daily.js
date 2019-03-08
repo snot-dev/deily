@@ -7,4 +7,5 @@ const DailySchema = new mongoose.Schema( {
 	team: { type: mongoose.Schema.Types.ObjectId, ref: 'Team' }
 } );
 
-mongoose.model( 'Penalty', DailySchema );
+module.exports = mongoose.model( 'Daily', DailySchema );
+

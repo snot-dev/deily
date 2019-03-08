@@ -1,6 +1,4 @@
-const mongoose = require( 'mongoose' );
 const crud = require( '../shared/crud' );
+const Fine = require( '../models/fine' );
 
-const Fine = mongoose.model( 'Fine' );
-
-module.exports = crud.defineRoutes( Fine );
+module.exports = crud.createRoutes( Fine );

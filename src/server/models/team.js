@@ -8,4 +8,4 @@ const TeamSchema = new mongoose.Schema( {
 	users: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]
 }, { minimize: false } );
 
-mongoose.model( 'Penalty', TeamSchema );
+module.exports = mongoose.model( 'Team', TeamSchema );

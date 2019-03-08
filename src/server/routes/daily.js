@@ -1,6 +1,4 @@
-const mongoose = require( 'mongoose' );
 const crud = require( '../shared/crud' );
+const Daily = require( '../models/daily' );
 
-const Daily = mongoose.model( 'Daily' );
-
-module.exports = crud.defineRoutes( Daily );
+module.exports = crud.createRoutes( Daily );

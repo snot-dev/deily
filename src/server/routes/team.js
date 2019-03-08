@@ -1,6 +1,4 @@
-const mongoose = require( 'mongoose' );
 const crud = require( '../shared/crud' );
+const Team = require( '../models/team' );
 
-const Team = mongoose.model( 'Team' );
-
-module.exports = crud.defineRoutes( Team );
+module.exports = crud.createRoutes( Team );

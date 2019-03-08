@@ -10,4 +10,4 @@ const UserSchema = new mongoose.Schema( {
 	penalties: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Penalty' }]
 }, { minimize: false } );
 
-mongoose.model( 'User', UserSchema );
+module.exports = mongoose.model( 'User', UserSchema );

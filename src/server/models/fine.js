@@ -7,4 +7,4 @@ const FineSchema = new mongoose.Schema( {
 	description: String
 } );
 
-mongoose.model( 'Penalty', FineSchema );
+module.exports = mongoose.model( 'Fine', FineSchema );
