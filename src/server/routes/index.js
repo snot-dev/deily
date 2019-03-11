@@ -10,7 +10,7 @@ module.exports = ( app ) => {
 	router.use( '/fine', fine );
 	router.use( '/penalty', penalty );
 	router.use( '/team', team );
-	router.use( '/user', user );
+	router.use( '/users', user );
 
 	return router;
 };

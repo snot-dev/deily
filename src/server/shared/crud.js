@@ -19,7 +19,7 @@ const createControllers = ( Model ) => {
 		getAll: ( req, res ) => {
 			Model.find( {} )
 				.then( ( items ) => {
-					res.json( { success: true, list: items } );
+					res.json( { success: true, collectionName, list: items } );
 				} )
 				.catch( ( err ) => {
 					res.json( { success: false, error: messages.error.whileFetching( collectionName ) } );
@@ -36,7 +36,6 @@ const createControllers = ( Model ) => {
 		},
 		create: ( req, res ) => {
 			const newItem = new Model( req.body );
-
 			newItem.created = new Date();
 
 			newItem.save()
