@@ -5,7 +5,7 @@ mongoose.Promise = require( 'bluebird' );
 
 const createControllers = ( Model ) => {
 	const collectionName = Model.collection.collectionName;
-	
+
 	try {
 		if ( !Model ) {
 			throw new Error( 'You must pass a valid model!' );
@@ -14,51 +14,51 @@ const createControllers = ( Model ) => {
 		throw err;
 		return 0;
 	}
-	
+
 	return {
 		getAll: ( req, res ) => {
 			Model.find( {} )
-			.then( ( items ) => {
-				res.json( { success: true, collectionName, list: items } );
-			} )
-			.catch( ( err ) => {
-				res.json( { success: false, error: messages.error.whileFetching( collectionName ) } );
-			} );
+				.then( ( items ) => {
+					res.json( { success: true, collectionName, list: items } );
+				} )
+				.catch( ( err ) => {
+					res.json( { success: false, error: messages.error.whileFetching( collectionName ) } );
+				} );
 		},
 		getOne: ( req, res ) => {
 			Model.findOne( { '_id': req.params.id } )
-			.then( ( item ) => {
-				res.json( { success: true, item } );
-			} )
-			.catch( ( err ) => {
-				res.json( { success: false, error: messages.error.whileFetching( collectionName ) } );
-			} );
+				.then( ( item ) => {
+					res.json( { success: true, item } );
+				} )
+				.catch( ( err ) => {
+					res.json( { success: false, error: messages.error.whileFetching( collectionName ) } );
+				} );
 		},
 		create: ( req, res ) => {
 			const newItem = new Model( req.body );
 			newItem.created = new Date();
-			
+			// console.log( newItem );
 			newItem.save()
-			.then( ( result ) => {
-				res.json( { success: true, message: messages.success.created( collectionName ), result } );
-			} )
-			.catch( ( err ) => {
-				res.json( { success: false, error: messages.error.whileCreating( collectionName ) } );
-			} );
+				.then( ( result ) => {
+					res.json( { success: true, message: messages.success.created( collectionName ), result } );
+				} )
+				.catch( ( err ) => {
+					res.json( { success: false, error: messages.error.whileCreating( collectionName ) } );
+				} );
 		},
 		update: ( req, res ) => {
 			Model.findOne( { '_id': req.params.id } )
-			.then( ( doc ) => {
-				const updatedDoc = Object.assign( doc, req.body );
-				
-				return updatedDoc.save();
-			} )
-			.then( ( result ) => {
-				res.json( { success: true, message: messages.success.updated( collectionName ), result } );
-			} )
-			.catch( ( err ) => {
-				res.json( { success: false, error: messages.error.whileUpdating( collectionName ) } );
-			} );
+				.then( ( doc ) => {
+					const updatedDoc = Object.assign( doc, req.body );
+
+					return updatedDoc.save();
+				} )
+				.then( ( result ) => {
+					res.json( { success: true, message: messages.success.updated( collectionName ), result } );
+				} )
+				.catch( ( err ) => {
+					res.json( { success: false, error: messages.error.whileUpdating( collectionName ) } );
+				} );
 		},
 		delete: ( req, res ) => {
 			Model.remove( { _id: req.params.id }, ( err, result ) => {
@@ -77,7 +77,7 @@ exports.createControllers = createControllers;
 exports.createRoutes = ( Model ) => {
 	const router = express.Router();
 	const controllers = createControllers( Model );
-	
+
 	router.get( '/', controllers.getAll );
 	router.post( '/', controllers.create );
 	router.get( '/:id', controllers.getOne );

@@ -45,6 +45,7 @@ class Tests {
     }
 
     createNew( url, Model, payload, validation ) {
+        // console.log(payload);
         return ( done ) => {
             this._createNew( url, Model, payload, validation )
                 .then( () => {
@@ -276,14 +277,13 @@ class Tests {
     }
 
     _createNew( url, Model, payload, validation ) {
-        console.log( url );
         return new Promise( ( resolve, reject ) => {
             chai.request( server )
                 .post( url )
                 // .set( 'Authorization', `Bearer ${this._token}` )
                 .send( payload )
                 .then( ( res ) => {
-                    console.warn( res.body );
+                    // console.warn( res.body );
                     this._validRequest( res );
                     // res.body.success.should.to.equal(true);
 

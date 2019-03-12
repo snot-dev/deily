@@ -16,17 +16,14 @@ const mock = {
 	penalties: []
 };
 
-const updateValue = {
-	penalties: [
-		{
-			_id: new mongoose.mongo.ObjectId( '56cb91bdc3464f14678934cd' ),
-			user: '56cb91bdc3464f14678934cb',
-			fine: '56cb91bdc3464f14678934cg',
-			date: Date.now()
-		}
-	]
-};
-// console.log( User );
+const updateValue = [
+	{
+		_id: new mongoose.mongo.ObjectId( '56cb91bdc3464f14678934cd' ),
+		user: '56cb91bdc3464f14678934cb',
+		fine: '56cb91bdc3464f14678934cg',
+		date: Date.now()
+	}
+];
 const updatedMock = Object.assign( mock, { penalties: updateValue } );
 
 // eslint-disable-next-line no-undef
