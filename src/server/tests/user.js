@@ -16,15 +16,9 @@ const mock = {
 	penalties: []
 };
 
-const updateValue = [
-	{
-		_id: new mongoose.mongo.ObjectId( '56cb91bdc3464f14678934cd' ),
-		user: '56cb91bdc3464f14678934cb',
-		fine: '56cb91bdc3464f14678934cg',
-		date: Date.now()
-	}
-];
-const updatedMock = Object.assign( { penalties: updateValue }, mock );
+const updateValue = "updatedTest";
+
+const updatedMock = Object.assign( { name: updateValue }, mock );
 
 // eslint-disable-next-line no-undef
-describe( testName, tests.CRUD( url, false, User, { new: mock, update: { mock: updatedMock, test: "penalties" } } ) );
+describe( testName, tests.CRUD( url, false, User, { new: mock, update: { mock: updatedMock, test: "name" } } ) );

@@ -60,7 +60,7 @@ const createControllers = ( Model ) => {
 				} );
 		},
 		delete: ( req, res ) => {
-			Model.remove( { _id: req.params.id }, ( err, result ) => {
+			Model.deleteOne( { _id: req.params.id }, ( err, result ) => {
 				if ( err ) {
 					res.json( { success: false, error: messages.error.whileDeleting( collectionName ), details: err } );
 				} else {

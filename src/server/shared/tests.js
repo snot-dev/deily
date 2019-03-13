@@ -32,7 +32,7 @@ class Tests {
                 after( "Delete test user", this.afterTest( Model, mocks, validation.after ) ); // eslint-disable-line no-undef
             }
 
-            before( "Clean Up", this.cleanUp( Model ) ); // eslint-disable-line no-undef
+            it( "Clean Up", this.cleanUp( Model ) ); // eslint-disable-line no-undef
 
             it( "Create new Item", this.createNew( url, Model, mocks.new, validation.create ) ); // eslint-disable-line no-undef
 
@@ -98,7 +98,13 @@ class Tests {
     }
 
     cleanUp( Model ) {
-        Model.remove();
+        return ( done ) => {
+            Model.deleteMany( {} )
+                .then( () => {
+                    done();
+                } )
+                .catch( this._failTest( done ) );
+        };
     }
 
     // Creates a new user to get authorization to interact with the API and deletes any mock that still persists
