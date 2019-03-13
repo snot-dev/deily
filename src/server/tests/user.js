@@ -4,7 +4,7 @@ const SharedTests = require( '../shared/tests' );
 
 const tests = new SharedTests();
 const testName = "Users";
-const url = "/api/users";
+const url = "/api/users/";
 
 const mock = {
 	_id: new mongoose.mongo.ObjectId( '56cb91bdc3464f14678934cb' ),
@@ -24,7 +24,7 @@ const updateValue = [
 		date: Date.now()
 	}
 ];
-const updatedMock = Object.assign( mock, { penalties: updateValue } );
+const updatedMock = Object.assign( { penalties: updateValue }, mock );
 
 // eslint-disable-next-line no-undef
 describe( testName, tests.CRUD( url, false, User, { new: mock, update: { mock: updatedMock, test: "penalties" } } ) );

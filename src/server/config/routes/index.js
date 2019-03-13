@@ -5,12 +5,12 @@ const penalty = require( './penalty' );
 const team = require( './team' );
 const user = require( './user' );
 
-module.exports = ( app ) => {
-	router.use( '/daily', daily );
-	router.use( '/fine', fine );
-	router.use( '/penalty', penalty );
-	router.use( '/team', team );
-	router.use( '/users', user );
+router.use( '/daily', daily );
+router.use( '/fine', fine );
+router.use( '/penalty', penalty );
+router.use( '/team', team );
+router.use( '/users', user );
 
-	return router;
+module.exports = ( app ) => {
+	app.use( '/api', router );
 };

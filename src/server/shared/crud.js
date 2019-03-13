@@ -22,7 +22,7 @@ const createControllers = ( Model ) => {
 					res.json( { success: true, collectionName, list: items } );
 				} )
 				.catch( ( err ) => {
-					res.json( { success: false, error: messages.error.whileFetching( collectionName ) } );
+					res.json( { success: false, error: messages.error.whileFetching( collectionName ), details: err } );
 				} );
 		},
 		getOne: ( req, res ) => {
@@ -31,19 +31,18 @@ const createControllers = ( Model ) => {
 					res.json( { success: true, item } );
 				} )
 				.catch( ( err ) => {
-					res.json( { success: false, error: messages.error.whileFetching( collectionName ) } );
+					res.json( { success: false, error: messages.error.whileFetching( collectionName ), details: err } );
 				} );
 		},
 		create: ( req, res ) => {
 			const newItem = new Model( req.body );
 			newItem.created = new Date();
-			// console.log( newItem );
 			newItem.save()
 				.then( ( result ) => {
 					res.json( { success: true, message: messages.success.created( collectionName ), result } );
 				} )
 				.catch( ( err ) => {
-					res.json( { success: false, error: messages.error.whileCreating( collectionName ) } );
+					res.json( { success: false, error: messages.error.whileCreating( collectionName ), details: err } );
 				} );
 		},
 		update: ( req, res ) => {
@@ -57,13 +56,13 @@ const createControllers = ( Model ) => {
 					res.json( { success: true, message: messages.success.updated( collectionName ), result } );
 				} )
 				.catch( ( err ) => {
-					res.json( { success: false, error: messages.error.whileUpdating( collectionName ) } );
+					res.json( { success: false, error: messages.error.whileUpdating( collectionName ), details: err } );
 				} );
 		},
 		delete: ( req, res ) => {
 			Model.remove( { _id: req.params.id }, ( err, result ) => {
 				if ( err ) {
-					res.json( { success: false, error: messages.error.whileDeleting( collectionName ) } );
+					res.json( { success: false, error: messages.error.whileDeleting( collectionName ), details: err } );
 				} else {
 					res.json( { success: true, message: messages.success.deleted( collectionName ) } );
 				}

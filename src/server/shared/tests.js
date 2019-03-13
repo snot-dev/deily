@@ -32,15 +32,17 @@ class Tests {
                 after( "Delete test user", this.afterTest( Model, mocks, validation.after ) ); // eslint-disable-line no-undef
             }
 
+            before( "Clean Up", this.cleanUp( Model ) ); // eslint-disable-line no-undef
+
             it( "Create new Item", this.createNew( url, Model, mocks.new, validation.create ) ); // eslint-disable-line no-undef
 
-            // it( "List all items", this.getAll( url, Model, validation.list ) ); // eslint-disable-line no-undef
+            it( "List all items", this.getAll( url, Model, validation.list ) ); // eslint-disable-line no-undef
 
-            // it( "List one item", this.getById( url, Model, mocks.new._id, validation.single ) ); // eslint-disable-line no-undef
+            it( "List one item", this.getById( url, Model, mocks.new._id, validation.single ) ); // eslint-disable-line no-undef
 
-            // it( "Update item field", this.update( url, Model, mocks.update, validation.update ) ); // eslint-disable-line no-undef
+            it( "Update item field", this.update( url, Model, mocks.update, validation.update ) ); // eslint-disable-line no-undef
 
-            // it( 'Delete Created Item', this.deleteById( url, Model, mocks.new._id, validation.delete ) ); // eslint-disable-line no-undef
+            it( 'Delete Created Item', this.deleteById( url, Model, mocks.new._id, validation.delete ) ); // eslint-disable-line no-undef
         };
     }
 
@@ -93,6 +95,10 @@ class Tests {
                 } )
                 .catch( this._failTest( done ) );
         };
+    }
+
+    cleanUp( Model ) {
+        Model.remove();
     }
 
     // Creates a new user to get authorization to interact with the API and deletes any mock that still persists
@@ -285,12 +291,12 @@ class Tests {
                 .then( ( res ) => {
                     // console.warn( res.body );
                     this._validRequest( res );
-                    // res.body.success.should.to.equal(true);
+                    res.body.success.should.to.equal( true );
 
                     if ( validation ) {
                         validation( res );
                     } else {
-                        const instance = new Model( res.body.result.item );
+                        const instance = new Model( res.body.result );
                         const validationError = instance.validateSync();
 
                         if ( validationError ) {
