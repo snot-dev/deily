@@ -3,7 +3,7 @@ const User = require( '../models/user' );
 const SharedTests = require( '../shared/tests' );
 
 const tests = new SharedTests();
-const testName = "Users";
+const testName = "CRUD Users";
 const url = "/api/users/";
 
 const mock = {
