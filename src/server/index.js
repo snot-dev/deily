@@ -5,7 +5,7 @@ const mongoose = require( 'mongoose' );
 const config = require( './config' );
 mongoose.Promise = require( 'bluebird' );
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 const app = express();
 
 config.express( app );
