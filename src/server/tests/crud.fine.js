@@ -4,7 +4,7 @@ const SharedTests = require( '../shared/tests' );
 
 const tests = new SharedTests();
 const testName = "CRUD Fines";
-const url = "/api/fine/";
+const url = "/api/fines/";
 
 const mock = {
 	_id: new mongoose.mongo.ObjectId( '56cb91bdc3464f14678853cb' ),

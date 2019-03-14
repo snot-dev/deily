@@ -19,8 +19,7 @@ class Tests {
             // password: helpers.generateRandomPassword(),
             name: "Tagus",
             surname: "Tester",
-            created: new Date(),
-            isAdmin: true
+            created: new Date()
         };
     }
 

@@ -6,9 +6,9 @@ const team = require( './team' );
 const user = require( './user' );
 
 router.use( '/daily', daily );
-router.use( '/fine', fine );
-router.use( '/penalty', penalty );
-router.use( '/team', team );
+router.use( '/fines', fine );
+router.use( '/penalties', penalty );
+router.use( '/teams', team );
 router.use( '/users', user );
 
 module.exports = ( app ) => {
