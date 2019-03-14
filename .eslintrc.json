@@ -51,7 +51,7 @@
 			{ "allowSamePrecedence": true }
 		],
 		"no-unused-expressions": [2, { "allowTernary": true }],
-		"no-underscore-dangle": [2, { "allowAfterThis": true }],
+		"no-underscore-dangle": [2, { "allowAfterThis": true, "allow": ["_id"] }],
 		"no-empty-function": 2,
 		"no-restricted-syntax": [
 			2,
