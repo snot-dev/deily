@@ -3,7 +3,7 @@ mongoose.Promise = require( 'bluebird' );
 
 const FineSchema = new mongoose.Schema( {
 	name: { type: String, required: true },
-	amount: { type: mongoose.Schema.Types.Decimal128, required: true, default: '' },
+	amount: { type: Number, required: true, default: '' },
 	description: String
 } );
 

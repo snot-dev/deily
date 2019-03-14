@@ -18,7 +18,8 @@ const mock = {
 
 const updateValue = "updatedTest";
 
-const updatedMock = Object.assign( { name: updateValue }, mock );
+const copiedMock = Object.assign( {}, mock );
+const updatedMock = Object.assign( copiedMock, { name: updateValue } );
 
 // eslint-disable-next-line no-undef
 describe( testName, tests.CRUD( url, false, User, { new: mock, update: { mock: updatedMock, test: "name" } } ) );

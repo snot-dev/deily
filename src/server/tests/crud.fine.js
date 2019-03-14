@@ -9,13 +9,14 @@ const url = "/api/fine/";
 const mock = {
 	_id: new mongoose.mongo.ObjectId( '56cb91bdc3464f14678853cb' ),
 	name: "missed",
-	amount: 1.0,
+	amount: 0.5,
 	description: "This is a fine"
 };
 
-const updateValue = 2.0;
+const updateValue = 2.5;
 
-const updatedMock = Object.assign( { amount: updateValue }, mock );
+const copiedMock = Object.assign( {}, mock );
+const updatedMock = Object.assign( copiedMock, { amount: updateValue } );
 
 // eslint-disable-next-line no-undef
 describe( testName, tests.CRUD( url, false, Fine, { new: mock, update: { mock: updatedMock, test: "amount" } } ) );
