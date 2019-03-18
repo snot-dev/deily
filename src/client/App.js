@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import Header from './components/header';
+
 import './app.css';
 
 export default class App extends Component {
-	state = { username: null };
-
 	render() {
 		return (
-			<div>
+			<Fragment>
+				<Header />
 				<h1>Deily!!</h1>
-			</div>
+			</Fragment>
 		);
 	}
 }
