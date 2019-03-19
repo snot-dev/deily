@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { AppBar, Toolbar, Typography } from '@material-ui/core/';
+import { AppBar, Toolbar, Typography, Button } from '@material-ui/core/';
+import AccountCircle from '@material-ui/icons/AccountCircle';
 
 export default class Header extends Component {
 	render() {
@@ -7,8 +8,9 @@ export default class Header extends Component {
 			<AppBar position="static">
 				<Toolbar>
 					<Typography variant="h6" color="inherit">
-						Dragon
+						Deily
 					</Typography>
+					<Button color="inherit"><AccountCircle /></Button>
 				</Toolbar>
 			</AppBar>
 		);
