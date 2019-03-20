@@ -38,7 +38,13 @@ describe.only( testName, () => {
 
 	it( "Clean Up User", tests.cleanUp( User ) ); // eslint-disable-line no-undef
 
-	it( "Create new Item", tests.createNew( url, User, { user, team: '56cb91bdc3464f14678936cb' } ) ); // eslint-disable-line no-undef
+	it( "Create new Item", ( done ) => {
+		this._createNew( url, Model, payload, validation )
+			.then( () => {
+				done();
+			} )
+			.catch( this._failTest( done ) );
+	};
 
 	it( "List all items", tests.getAll( url, User ) ); // eslint-disable-line no-undef
 
