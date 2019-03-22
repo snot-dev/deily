@@ -1,0 +1,59 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+	"editor.insertSpaces": false,
+	"editor.detectIndentation": true,
+
+	"files.trimTrailingWhitespace": true,
+
+	"jshint.enable": false,
+	"eslint.enable": true,
+
+	"npm.includeDirectories": [
+		"src/bower_components/Tools_Common",
+		"src/bower_components/Tools_Build",
+		"src/bower_components/Tools_JsDoc"
+	],
+
+	"files.exclude": {
+		"**/bower_components": false,
+		"**/.idea": true,
+		"**/.vscode": false,
+		"**/.*ignore": false,
+		"**/.eslintrc": true,
+		"**/*.log": true,
+		"**/node_modules": true,
+		"**/stage/": true,
+		"**/temp/": true,
+		"**/dest*": true,
+		"**/*.map": true,
+
+		"**/_tempStuff_": true
+	},
+
+	"search.exclude": {
+		"**/bower_components": false,
+		"**/.idea": true,
+		"**/.vscode": true,
+		"**/.*ignore": true,
+		"**/.eslintrc": true,
+		"**/*.log": true,
+		"**/node_modules": true,
+		"**/stage/": true,
+		"**/temp/": true,
+		"**/dest*": true,
+		"**/*.map": true,
+
+		"**/_tempStuff_": true
+	},
+
+	"javascript.validate.enable": false,
+	"javascript.format.insertSpaceAfterCommaDelimiter": true,
+	"javascript.format.insertSpaceAfterSemicolonInForStatements": true,
+	"javascript.format.insertSpaceBeforeAndAfterBinaryOperators": true,
+	"javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": true,
+	"javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": true,
+	"javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
+	"javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
+	"javascript.format.placeOpenBraceOnNewLineForFunctions": false,
+	"javascript.format.placeOpenBraceOnNewLineForControlBlocks": false
+}
