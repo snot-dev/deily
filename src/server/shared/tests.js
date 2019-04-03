@@ -247,6 +247,7 @@ class Tests {
 
 	_requestPost( url, payload, validation ) {
 		return new Promise( ( resolve, reject ) => {
+			// console.warn( payload );
 			chai.request( server )
 				.post( url )
 				.send( payload )
@@ -282,7 +283,7 @@ class Tests {
 		res.body.should.be.a( 'object' );
 
 		if ( validation ) {
-			validation( res );
+			validation( res, should );
 		}
 	}
 
@@ -298,7 +299,7 @@ class Tests {
 					res.body.success.should.to.equal( true );
 
 					if ( validation ) {
-						validation( res );
+						validation( res, should );
 					} else {
 						const instance = new Model( res.body.result );
 						const validationError = instance.validateSync();
@@ -329,7 +330,7 @@ class Tests {
 					res.body.success.should.to.equal( true );
 
 					if ( validation ) {
-						validation( res );
+						validation( res, should );
 					} else {
 						res.body.list.should.be.a( 'array' );
 						res.body.list.forEach( ( doc ) => {
@@ -365,7 +366,7 @@ class Tests {
 					res.body.success.should.to.equal( true );
 
 					if ( validation ) {
-						validation( res );
+						validation( res, should );
 					} else {
 						const instance = new Model( res.body.item );
 						const validationError = instance.validateSync();
@@ -396,7 +397,7 @@ class Tests {
 					res.body.success.should.to.equal( true );
 
 					if ( validation ) {
-						validation( res );
+						validation( res, should );
 					} else {
 						const instance = new Model( res.body.result );
 						const validationError = instance.validateSync();
@@ -428,7 +429,7 @@ class Tests {
 					res.body.success.should.to.equal( true );
 
 					if ( validation ) {
-						validation( res );
+						validation( res, should );
 					}
 
 					this._createdItem = false;

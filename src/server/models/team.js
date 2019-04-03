@@ -19,7 +19,7 @@ TeamSchema.statics.addUser = ( teamId, userId ) => {
 			if ( doc.users.indexOf( userId ) > -1 ) {
 				resolve( doc );
 			} else {
-				reject( new Error( 'Error addding user to the Team' ) );
+				reject( new Error( 'The user already exists in this team!' ) );
 			}
 		} );
 	} );

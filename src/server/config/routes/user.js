@@ -13,10 +13,8 @@ const alt = {
 
 		let createdUser;
 
-		// console.warn( newUser );
 		newUser.save()
 			.then( ( user ) => {
-				// console.warn( result );
 				createdUser = user;
 				return Team.addUser( teamId, createdUser._id );
 			} )
