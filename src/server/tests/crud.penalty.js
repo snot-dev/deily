@@ -9,7 +9,12 @@ const url = "/api/penalties/";
 const mock = {
 	_id: new mongoose.mongo.ObjectId( '56cb91bdc3464f14678123cb' ),
 	user: ['56cb91bdc3464f14274854cb'],
-	fine: ['56cb91bdc3464f14274890cb'],
+	fine: {
+		_id: '56cb91bdc3464f14274890cb',
+		name: "Simple",
+		amount: 1,
+		description: "This is a simple fine"
+	},
 	date: Date.now(),
 	paid: false
 };

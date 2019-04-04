@@ -29,9 +29,7 @@ const copiedUser = Object.assign( {}, user );
 const updatedUser = Object.assign( copiedUser, { name: updateValue } );
 
 // eslint-disable-next-line no-undef
-describe.only( testName, () => {
-	// console.warn( mock );
-
+describe( testName, () => {
 	it( "Clean Up Team", tests.cleanUp( Team ) ); // eslint-disable-line no-undef
 
 	it( "Clean Up User", tests.cleanUp( User ) ); // eslint-disable-line no-undef

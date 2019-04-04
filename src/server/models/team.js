@@ -11,7 +11,7 @@ const TeamSchema = new mongoose.Schema( {
 
 TeamSchema.statics.addUser = ( teamId, userId ) => {
 	return new Promise( ( resolve, reject ) => {
-		Team.findOneAndUpdate( teamId, { '$push': { 'users': userId } }, { new: true }, ( err, doc ) => {
+		Team.findOneAndUpdate( teamId, { '$push': { 'users': userId } }, { new: true }, ( err, doc ) => { // eslint-disable-line no-use-before-define
 			if ( err ) {
 				reject( new Error( err ) );
 			}
