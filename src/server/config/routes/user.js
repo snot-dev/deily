@@ -7,16 +7,13 @@ const collectionName = User.collection.collectionName;
 
 const alt = {
 	create: ( req, res ) => {
-		const newUser = new User( req.body.user );
-		const teamId = req.body.team;
-		newUser.teams = [teamId];
-
+		const newUser = new User( req.body );
 		let createdUser;
 
 		newUser.save()
 			.then( ( user ) => {
 				createdUser = user;
-				return Team.addUser( teamId, createdUser._id );
+				return Team.addUser( createdUser );
 			} )
 			.then( ( team ) => {
 				res.json( { success: true, message: messages.success.created( collectionName ), result: { user: createdUser, team } } );

@@ -3,15 +3,15 @@ mongoose.Promise = require( 'bluebird' );
 
 const TeamSchema = new mongoose.Schema( {
 	name: { type: String, required: true },
-	penalties: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Penalty', required: true, default: [] }],
 	createdAt: { type: Date, default: Date.now(), required: true },
 	createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
 	users: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true, default: [] }]
 }, { minimize: false } );
 
-TeamSchema.statics.addUser = ( teamId, userId ) => {
+TeamSchema.statics.addUser = ( user ) => {
+	const userId = user._id;
 	return new Promise( ( resolve, reject ) => {
-		Team.findOneAndUpdate( teamId, { '$push': { 'users': userId } }, { new: true }, ( err, doc ) => { // eslint-disable-line no-use-before-define
+		Team.findOneAndUpdate( user.team, { '$push': { 'users': userId } }, { new: true }, ( err, doc ) => { // eslint-disable-line no-use-before-define
 			if ( err ) {
 				reject( new Error( err ) );
 			}

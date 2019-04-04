@@ -10,6 +10,7 @@ const mock = {
 	_id: new mongoose.mongo.ObjectId( '56cb91bdc3464f14678853cb' ),
 	name: "missed",
 	amount: 0.5,
+	team: '56cb91bdc3464f14678936cb',
 	description: "This is a fine"
 };
 

@@ -294,7 +294,6 @@ class Tests {
 				// .set( 'Authorization', `Bearer ${this._token}` )
 				.send( payload )
 				.then( ( res ) => {
-					// console.warn( res.body );
 					this._validRequest( res );
 					res.body.success.should.to.equal( true );
 

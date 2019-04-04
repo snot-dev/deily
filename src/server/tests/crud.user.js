@@ -14,6 +14,7 @@ const user = {
 	email: "test@test.com",
 	username: "test",
 	creator: false,
+	team: '56cb91bdc3464f14678936cb',
 	googleId: "thisIsAMockGoogleUserId"
 };
 
@@ -36,7 +37,7 @@ describe( testName, () => {
 
 	it( "Create Team before User", tests.createNew( teamUrl, Team, team ) ); // eslint-disable-line no-undef
 
-	it( "Create new Item", tests.requestPost( url, { user, team }, ( res, should ) => { // eslint-disable-line no-undef
+	it( "Create new Item", tests.requestPost( url, user, ( res, should ) => { // eslint-disable-line no-undef
 		res.body.success.should.to.equal( true );
 		res.body.result.should.be.a( 'object' );
 		const newUser = new User( res.body.result.user );
